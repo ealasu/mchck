@@ -100,6 +100,7 @@ Reset_Handler(void)
             _app_rom == 0xffffffff ||
             memcmp(&VBAT, sys_reset_to_loader_magic, sizeof(sys_reset_to_loader_magic)) == 0) {
                 extern void Default_Reset_Handler(void);
+                onboard_led(ONBOARD_LED_ON);
 
                 memset(&VBAT, 0, sizeof(VBAT));
                 Default_Reset_Handler();
